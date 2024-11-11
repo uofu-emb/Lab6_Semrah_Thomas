@@ -22,5 +22,7 @@ void supervisor_thread(void *params);
 void startInversion(SemaphoreHandle_t *inputSemaphore, int* lower, int* higher);
 void busy_busy(void);
 void busy_yield(void);
+void busy_busy_thread(void *params);
+void busy_yield_thread(void *params);
 void thirdActivityExecuter(TaskFunction_t threadOneEntry, int threadOnePriority, configRUN_TIME_COUNTER_TYPE* threadOneRuntime,
 TaskFunction_t threadTwoEntry, int threadTwoPriority, configRUN_TIME_COUNTER_TYPE* threadTwoRuntime);

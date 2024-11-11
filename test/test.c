@@ -45,7 +45,7 @@ void test_mutex(void){
 
 void test_samepri_busy_busy(void){
     printf("Testing busy_busy in test_samepri_busy_busy.\n");
-    thirdActivityExecuter(busy_busy, tskIDLE_PRIORITY + 3, &threadOneRuntime, busy_busy, tskIDLE_PRIORITY + 3, &threadTwoRuntime);
+    thirdActivityExecuter(busy_busy_thread, tskIDLE_PRIORITY + 3, &threadOneRuntime, busy_busy_thread, tskIDLE_PRIORITY + 3, &threadTwoRuntime);
     
     float threadOneRuntimeSeconds = (float)threadOneRuntime / configTICK_RATE_HZ;
     float threadTwoRuntimeSeconds = (float)threadTwoRuntime / configTICK_RATE_HZ;
@@ -56,7 +56,7 @@ void test_samepri_busy_busy(void){
 
 void test_samepri_yield_yield(void){
     printf("Testing busy_busy in test_samepri_busy_busy.\n");
-    thirdActivityExecuter(busy_yield, tskIDLE_PRIORITY + 3, &threadOneRuntime, busy_yield, tskIDLE_PRIORITY + 3, &threadTwoRuntime);
+    thirdActivityExecuter(busy_yield_thread, tskIDLE_PRIORITY + 3, &threadOneRuntime, busy_yield_thread, tskIDLE_PRIORITY + 3, &threadTwoRuntime);
     
     float threadOneRuntimeSeconds = (float)threadOneRuntime / configTICK_RATE_HZ;
     float threadTwoRuntimeSeconds = (float)threadTwoRuntime / configTICK_RATE_HZ;
@@ -67,7 +67,7 @@ void test_samepri_yield_yield(void){
 
 void test_samepri_busy_yield(void){
     printf("Testing busy_busy in test_samepri_busy_busy.\n");
-    thirdActivityExecuter(busy_busy, tskIDLE_PRIORITY + 3, &threadOneRuntime, busy_yield, tskIDLE_PRIORITY + 3, &threadTwoRuntime);
+    thirdActivityExecuter(busy_busy_thread, tskIDLE_PRIORITY + 3, &threadOneRuntime, busy_yield_thread, tskIDLE_PRIORITY + 3, &threadTwoRuntime);
     
     float threadOneRuntimeSeconds = (float)threadOneRuntime / configTICK_RATE_HZ;
     float threadTwoRuntimeSeconds = (float)threadTwoRuntime / configTICK_RATE_HZ;
@@ -78,7 +78,7 @@ void test_samepri_busy_yield(void){
 
 void test_diffpri_busy_busy(void){
     printf("Testing busy_busy in test_samepri_busy_busy.\n");
-    thirdActivityExecuter(busy_busy, tskIDLE_PRIORITY + 4, &threadOneRuntime, busy_busy, tskIDLE_PRIORITY + 3, &threadTwoRuntime);
+    thirdActivityExecuter(busy_busy_thread, tskIDLE_PRIORITY + 4, &threadOneRuntime, busy_busy_thread, tskIDLE_PRIORITY + 3, &threadTwoRuntime);
     
     float threadOneRuntimeSeconds = (float)threadOneRuntime / configTICK_RATE_HZ;
     float threadTwoRuntimeSeconds = (float)threadTwoRuntime / configTICK_RATE_HZ;
@@ -89,7 +89,7 @@ void test_diffpri_busy_busy(void){
 
 void test_diffpri_busy_busy2(void){
     printf("Testing busy_busy in test_samepri_busy_busy.\n");
-    thirdActivityExecuter(busy_busy, tskIDLE_PRIORITY + 3, &threadOneRuntime, busy_busy, tskIDLE_PRIORITY + 3, &threadTwoRuntime);
+    thirdActivityExecuter(busy_busy_thread, tskIDLE_PRIORITY + 3, &threadOneRuntime, busy_busy_thread, tskIDLE_PRIORITY + 3, &threadTwoRuntime);
     
     float threadOneRuntimeSeconds = (float)threadOneRuntime / configTICK_RATE_HZ;
     float threadTwoRuntimeSeconds = (float)threadTwoRuntime / configTICK_RATE_HZ;
@@ -100,7 +100,7 @@ void test_diffpri_busy_busy2(void){
 
 void test_diffpri_yield_yield(void){
     printf("Testing busy_busy in test_samepri_busy_busy.\n");
-    thirdActivityExecuter(busy_yield, tskIDLE_PRIORITY + 4, &threadOneRuntime, busy_yield, tskIDLE_PRIORITY + 3, &threadTwoRuntime);
+    thirdActivityExecuter(busy_yield_thread, tskIDLE_PRIORITY + 4, &threadOneRuntime, busy_yield_thread, tskIDLE_PRIORITY + 3, &threadTwoRuntime);
     
     float threadOneRuntimeSeconds = (float)threadOneRuntime / configTICK_RATE_HZ;
     float threadTwoRuntimeSeconds = (float)threadTwoRuntime / configTICK_RATE_HZ;

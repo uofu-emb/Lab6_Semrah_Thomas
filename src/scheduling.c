@@ -110,6 +110,14 @@ void busy_yield(void)
     }
 }
 
+void busy_busy_thread(void *params){
+    busy_busy();
+}
+
+void busy_yield_thread(void *params){
+    busy_yield();
+}
+
 void thirdActivityExecuter(TaskFunction_t threadOneEntry, int threadOnePriority, configRUN_TIME_COUNTER_TYPE* threadOneRuntime,
 TaskFunction_t threadTwoEntry, int threadTwoPriority, configRUN_TIME_COUNTER_TYPE* threadTwoRuntime)
 {
