@@ -122,9 +122,7 @@ TaskFunction_t threadTwoEntry, int threadTwoPriority, configRUN_TIME_COUNTER_TYP
 {
     printf("Starting thirdActivityExecuter\n");
     TaskHandle_t threadOneHandler, threadTwoHandler;
-
-    portCONFIGURE_TIMER_FOR_RUN_TIME_STATS();
-
+    
     xTaskCreate(threadOneEntry, "ThreadOne", configMINIMAL_STACK_SIZE,
             NULL, threadOnePriority, &threadOneHandler);
     vTaskDelay(100);

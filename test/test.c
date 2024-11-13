@@ -88,12 +88,12 @@ void test_diffpri_busy_busy(void){
 
 void test_diffpri_busy_busy2(void){
     printf("Testing test_diffpri_busy_busy2.\n");
-    thirdActivityExecuter(busy_busy_thread, tskIDLE_PRIORITY + 3, &threadOneRuntime, busy_busy_thread, tskIDLE_PRIORITY + 3, &threadTwoRuntime);
+    thirdActivityExecuter(busy_busy_thread, tskIDLE_PRIORITY + 3, &threadOneRuntime, busy_busy_thread, tskIDLE_PRIORITY + 4, &threadTwoRuntime);
     
     // printf("Thread one runtime: %llu\n", threadOneRuntime);
     // printf("Thread two runtime: %llu\n", threadTwoRuntime);
 
-    TEST_ASSERT_TRUE_MESSAGE(threadOneRuntime > 4000000, "Thread one ran too short.");
+    TEST_ASSERT_TRUE_MESSAGE(threadOneRuntime < 4000000, "Thread one ran too long.");
     TEST_ASSERT_TRUE_MESSAGE(threadTwoRuntime > 4000000, "Thread two ran too short.");
 }
 
