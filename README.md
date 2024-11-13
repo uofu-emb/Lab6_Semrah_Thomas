@@ -1,6 +1,6 @@
 # Lab 06 for Semrah and Thomas
 
-![example workflow](https://github.com/uofu-emb/2024-lab05-Semrah-Thomas/actions/workflows/main.yml/badge.svg)
+![example workflow](https://github.com/uofu-emb/Lab6_Semrah_Thomas/actions/workflows/main.yml/badge.svg)
 
 ## Activity 1 and 2
 Here are pictures showing the execution of the activity 1 and 2 tests.
@@ -10,3 +10,4 @@ Here are pictures showing the execution of the activity 1 and 2 tests.
 
 ## Activity 3
 Here are pictures showing the execution of the tests for activity three.
+![ThreadTiming](!Images/ThreadTiming.PNG)

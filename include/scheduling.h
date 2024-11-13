@@ -4,7 +4,6 @@
 #include <task.h>
 #include <pico/stdlib.h>
 #include <pico/multicore.h>
-#include <pico/cyw43_arch.h>
 #include <unity.h>
 
 #define SUPERVISOR_TASK_PRIORITY (tskIDLE_PRIORITY + 10)
@@ -24,5 +23,5 @@ void busy_busy(void);
 void busy_yield(void);
 void busy_busy_thread(void *params);
 void busy_yield_thread(void *params);
-void thirdActivityExecuter(TaskFunction_t threadOneEntry, int threadOnePriority, configRUN_TIME_COUNTER_TYPE* threadOneRuntime,
-TaskFunction_t threadTwoEntry, int threadTwoPriority, configRUN_TIME_COUNTER_TYPE* threadTwoRuntime);
+void thirdActivityExecuter(TaskFunction_t threadOneEntry, int threadOnePriority, configRUN_TIME_COUNTER_TYPE *threadOneRuntime,
+TaskFunction_t threadTwoEntry, int threadTwoPriority, configRUN_TIME_COUNTER_TYPE *threadTwoRuntime);

@@ -4,7 +4,6 @@
 #include <task.h>
 #include <pico/stdlib.h>
 #include <pico/multicore.h>
-#include <pico/cyw43_arch.h>
 #include <unity.h>
 #include <task.h>
 
@@ -118,11 +117,13 @@ void busy_yield_thread(void *params){
     busy_yield();
 }
 
-void thirdActivityExecuter(TaskFunction_t threadOneEntry, int threadOnePriority, configRUN_TIME_COUNTER_TYPE* threadOneRuntime,
-TaskFunction_t threadTwoEntry, int threadTwoPriority, configRUN_TIME_COUNTER_TYPE* threadTwoRuntime)
+void thirdActivityExecuter(TaskFunction_t threadOneEntry, int threadOnePriority, configRUN_TIME_COUNTER_TYPE *threadOneRuntime,
+TaskFunction_t threadTwoEntry, int threadTwoPriority, configRUN_TIME_COUNTER_TYPE *threadTwoRuntime)
 {
     printf("Starting thirdActivityExecuter\n");
     TaskHandle_t threadOneHandler, threadTwoHandler;
+
+    portCONFIGURE_TIMER_FOR_RUN_TIME_STATS();
 
     xTaskCreate(threadOneEntry, "ThreadOne", configMINIMAL_STACK_SIZE,
             NULL, threadOnePriority, &threadOneHandler);
@@ -132,8 +133,14 @@ TaskFunction_t threadTwoEntry, int threadTwoPriority, configRUN_TIME_COUNTER_TYP
 
     vTaskDelay(10000);
 
+    vTaskSuspend(threadOneHandler);
+    vTaskSuspend(threadTwoHandler);
+
+    printf("thirdActivityExecuter Completed running logging time and closing threads\n");
     *threadOneRuntime = ulTaskGetRunTimeCounter(threadOneHandler);
     *threadTwoRuntime = ulTaskGetRunTimeCounter(threadTwoHandler);
+    // printf("Thread one runtime: %u\n", (unsigned int)ulTaskGetRunTimeCounter(threadOneHandler));
+    // printf("Thread two runtime: %u\n", (unsigned int)ulTaskGetRunTimeCounter(threadTwoHandler));
 
     vTaskDelete(threadOneHandler);
     vTaskDelete(threadTwoHandler);
